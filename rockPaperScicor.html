@@ -3,61 +3,13 @@
     <head></head>
     <body>
         <header></header>
-        <main></main>
+        <main>
+            <button class="button" id="rockButton"></button>
+            <button class="button" id="paperButton"></button>
+            <button class="button" id="scissorsButton"></button>
+            <div id="gameResult"></div>
+        </main>
         <footer></footer>
-        <script>
-            const bank = [`rock`, `paper`, `scissors`];
-            const getComputerInput = (arr) => {
-                return arr[Math.floor(Math.random() * arr.length)];
-            }
-            const rockPaperScissors = (playerSelection, computerSelection = getComputerInput(bank)) => {
-                const playerChoice = playerSelection.toLowerCase();
-                if (playerChoice === `scissors`) {
-                    if (computerSelection === `scissors`) {
-                        return `You tied!`
-                    } else if (computerSelection === `paper`) {
-                        return `You won!`
-                    } else if (computerSelection === `rock`) {
-                        return `You lost!`
-                    }
-                } else if (playerChoice === `paper`) {
-                    if (computerSelection === `paper`) {
-                        return `You tied!`
-                    } else if (computerSelection === `rock`) {
-                        return `You won!`
-                    } else if (computerSelection === `scissors`) {
-                        return `You lost!`
-                    }
-                } else if (playerChoice === `rock`) {
-                    if (computerSelection === `rock`) {
-                        return `You tied!`
-                    } else if (computerSelection === `scissors`) {
-                        return `You won!`
-                    } else if (computerSelection === `paper`) {
-                        return `You lost!`
-                    }
-                }
-            }
-            const game = () => {
-                let win = 0;
-                let lose = 0;
-                for (let i = 0; i < 6; i++) {
-                    let result = rockPaperScissors(prompt(`enter your choice`));
-                    if (result === `You won!`) {
-                        win++
-                    } else if (result === `You lost!`) {
-                        lose++
-                    }
-                }
-                if (win > lose) {
-                    return `Victory!`
-                } else if (win < lose) {
-                    return `Defeat!`
-                } else {
-                    return `Tie!`
-                }
-            }
-            console.log(game());
-        </script>
+        <script src="app.js"></script>
     </body>
 </html>
