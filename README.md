@@ -1,2 +1,2 @@
 # rock-paper-scissors
-A simple game to demonstrate Javascript
+A simple game to learn Javascript
