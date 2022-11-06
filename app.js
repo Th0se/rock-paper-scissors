@@ -72,6 +72,7 @@ button.forEach((i) => {
         console.log(`Win: ${win}`);
         console.log(`Lost: ${lose}`);
         console.log(`Result: ${game()}`);
+        gameResultText.innerHTML = game();
     });
 });
 
@@ -83,3 +84,14 @@ paperButton.textContent = `Paper`;
 
 const scissorsButton = document.querySelector(`#scissorsButton`);
 scissorsButton.textContent = `scissors`;
+
+const gameResultText = document.createElement(`div`);
+gameResultText.innerHTML = `Choose one to start the game`;
+
+const gameResultIndicator = document.createElement(`p`);
+gameResultIndicator.textContent = `You have ${win} win and ${lose} lose`;
+
+/* document.querySelector(`#gameResultText`).innerHTML = `Choose one to start the game`; */
+
+gameResult.appendChild(gameResultText);
+gameResult.appendChild(gameResultIndicator);
