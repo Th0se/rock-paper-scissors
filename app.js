@@ -1,12 +1,13 @@
 const bank = [`rock`, `paper`, `scissors`];
 
-const getComputerInput = (arr) => {
-    return arr[Math.floor(Math.random() * arr.length)];
-}
-
 let win = 0;
 let lose = 0;
 let round = 0;
+
+
+const getComputerInput = (arr) => {
+    return arr[Math.floor(Math.random() * arr.length)];
+}
 
 const rockPaperScissors = (playerSelection, computerSelection = getComputerInput(bank)) => {
     if (playerSelection === `scissors`) {
@@ -46,10 +47,13 @@ const game = () => {
             return `Tie!`;
         }
     } else if (round < 5) {
-        return `Not enough round!`;
+        return `Not enough round, play again to get result!`;
     };
 }
 
+
+const buttonHolder = document.querySelector('#buttonHolder');
+buttonHolder.style.textAlign = 'center';
 
 const button = document.querySelectorAll(`.button`);
 button.forEach((i) => {
@@ -72,7 +76,9 @@ button.forEach((i) => {
         console.log(`Win: ${win}`);
         console.log(`Lost: ${lose}`);
         console.log(`Result: ${game()}`);
+        gameResultText.innerHTML = game();
     });
+    i.style.color = `red`;
 });
 
 const rockButton = document.querySelector(`#rockButton`);
@@ -83,3 +89,21 @@ paperButton.textContent = `Paper`;
 
 const scissorsButton = document.querySelector(`#scissorsButton`);
 scissorsButton.textContent = `scissors`;
+
+const gameResult = document.querySelector(`#gameResult`);
+gameResult.style.borderColor = `black`;
+gameResult.style.borderStyle = `solid`;
+gameResult.style.textAlign = `center`;
+gameResult.style.padding = `20px`;
+gameResult.style.margin = `20px`;
+
+const gameResultText = document.createElement(`div`);
+gameResultText.innerHTML = `Choose one to start the game`;
+gameResultText.style.marginBottom = `20px`;
+
+const gameResultIndicator = document.createElement(`p`);
+gameResultIndicator.textContent = `You have ${win} win and ${lose} lose`;
+
+
+gameResult.appendChild(gameResultText);
+gameResult.appendChild(gameResultIndicator);
