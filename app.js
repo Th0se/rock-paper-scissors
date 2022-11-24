@@ -38,18 +38,14 @@ const rockPaperScissors = (playerSelection, computerSelection = getComputerInput
 }
 
 const game = () => {
-    if (round >= 5) {
         if (win > lose) {
             return `Victory!`;
         } else if (win < lose) {
             return `Defeat!`;
         } else {
             return `Tie!`;
-        }
-    } else if (round < 5) {
-        return `Not enough round, play again to get result!`;
-    };
-}
+        };
+};
 
 
 const buttonHolder = document.querySelector('#buttonHolder');
@@ -77,6 +73,7 @@ button.forEach((i) => {
         console.log(`Lost: ${lose}`);
         console.log(`Result: ${game()}`);
         gameResultText.innerHTML = game();
+        gameResultIndicator.textContent = `You have ${win} win and ${lose} loss`;
     });
     i.style.color = `red`;
 });
@@ -102,7 +99,6 @@ gameResultText.innerHTML = `Choose one to start the game`;
 gameResultText.style.marginBottom = `20px`;
 
 const gameResultIndicator = document.createElement(`p`);
-gameResultIndicator.textContent = `You have ${win} win and ${lose} lose`;
 
 
 gameResult.appendChild(gameResultText);
